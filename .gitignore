@@ -29,3 +29,5 @@ coverage
 
 # babeng
 .env
+.vscode
+.env.production
