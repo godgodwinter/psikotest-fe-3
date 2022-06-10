@@ -11,10 +11,9 @@ import { useStoreGuruBk } from "@/stores/guruBk";
 const storeGuruBk = useStoreGuruBk();
 const getData = async () => {
   try {
-    const response = await Api.post(`gurubk/auth/me`);
+    const response = await Api.post(`yayasan/auth/me`);
     storeGuruBk.setIdentitas(response.identitas);
     storeGuruBk.setSekolah(response.sekolah);
-    storeGuruBk.setPaket(response.paket);
     storeGuruBk.setStats(response.stats);
     // data.value = response.data;
     // data.value.map((item, index) => {
@@ -31,6 +30,7 @@ const loading = ref(false);
 getData();
 
 const sekolah = computed(() => storeGuruBk.getSekolah);
+const identitas = computed(() => storeGuruBk.getIdentitas);
 storeGuruBk.$subscribe((mutation, state) => {
   // console.log(mutation, state);
   // console.log(paket.value);
@@ -49,7 +49,7 @@ storeGuruBk.$subscribe((mutation, state) => {
       <div class="w-full relative lg:ml-72">
         <main class="pb-4 min-h-screen">
           <div v-if="loading">
-            <div v-if="sekolah.status == 'Aktif'">
+            <div v-if="identitas.status_login == 'Aktif'">
               <router-view />
             </div>
 
