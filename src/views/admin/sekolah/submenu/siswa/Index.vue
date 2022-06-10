@@ -28,26 +28,26 @@ const columns = [
     field: "kelas_nama",
     type: "String",
   },
-  {
-    label: "Username",
-    field: "username",
-    type: "String",
-  },
-  {
-    label: "Password Default",
-    field: "passworddefault",
-    type: "String",
-  },
-  {
-    label: "Username Ortu",
-    field: "ortu_username",
-    type: "String",
-  },
-  {
-    label: "Password Default Ortu",
-    field: "ortu_passworddefault",
-    type: "String",
-  },
+  // {
+  //   label: "Username",
+  //   field: "username",
+  //   type: "String",
+  // },
+  // {
+  //   label: "Password Default",
+  //   field: "passworddefault",
+  //   type: "String",
+  // },
+  // {
+  //   label: "Username Ortu",
+  //   field: "ortu_username",
+  //   type: "String",
+  // },
+  // {
+  //   label: "Password Default Ortu",
+  //   field: "ortu_passworddefault",
+  //   type: "String",
+  // },
 ];
 const getData = async () => {
   try {

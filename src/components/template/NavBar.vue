@@ -9,6 +9,7 @@ import Toast from "@/components/lib/Toast";
 import { useStoreGuruBk } from "@/stores/guruBk";
 const storeGuruBk = useStoreGuruBk();
 const paket = computed(() => storeGuruBk.getPaket);
+const identitas = computed(() => storeGuruBk.getIdentitas);
 storeGuruBk.$subscribe((mutation, state) => {
   // console.log(mutation, state);
   // console.log(paket.value);
@@ -110,7 +111,7 @@ getData();
         <div class="flex items-center">
           <div class="hidden lg:flex items-center">
             <span class="text-base font-bold uppercase text-gray-500 mr-5"
-              >Paket {{ paket.nama }} ❤️
+              >Status Akun : {{ identitas.status_login }} ❤️
             </span>
             <div class="-mb-1">
               <div></div>
