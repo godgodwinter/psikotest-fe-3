@@ -144,6 +144,30 @@ const pagesActiveClass = ref(
                 <span class="ml-3">Sekolah </span>
               </router-link>
             </li>
+
+            <li
+              class="lg:w-full py-0"
+              :class="[pagesActive == 'klasifikasi' ? pagesActiveClass : '']"
+            >
+              <router-link
+                :to="{ name: 'AdminKlasifikasi' }"
+                class="text-base-content font-normal rounded-lg flex items-center p-2 group hover:link"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M2 5a2 2 0 012-2h12a2 2 0 012 2v2a2 2 0 01-2 2H4a2 2 0 01-2-2V5zm14 1a1 1 0 11-2 0 1 1 0 012 0zM2 13a2 2 0 012-2h12a2 2 0 012 2v2a2 2 0 01-2 2H4a2 2 0 01-2-2v-2zm14 1a1 1 0 11-2 0 1 1 0 012 0z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                <span class="ml-3">Klasifikasi Akademis dan Profesi </span>
+              </router-link>
+            </li>
           </ul>
         </div>
       </div>

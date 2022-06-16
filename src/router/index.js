@@ -72,6 +72,16 @@ const router = createRouter({
           name: 'AdminSekolahEdit',
         },
         {
+          path: '/pages/data/catatan/klasifikasi',
+          name: 'AdminKlasifikasi',
+          component: () => import("@/views/admin/data/Klasifikasi.vue"),
+        },
+        {
+          path: '/pages/data/catatan/klasifikasi/:id',
+          name: 'AdminKlasifikasiDetail',
+          component: () => import("@/views/admin/data/KlasifikasiDetail.vue"),
+        },
+        {
           path: '/pages/sekolah/:id/detail',
           component: () => import("@/views/admin/sekolah/Detail.vue"),
           name: 'AdminSekolahDetail',
