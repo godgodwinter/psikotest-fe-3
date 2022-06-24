@@ -38,7 +38,7 @@ const kelas = ref(null);
 const getDataId = async () => {
   try {
     const response = await Api.get(
-      `yayasan/hasilpsikologi/detail/${route.params.id}`
+      `yayasan/hasilpsikologi/detail/${route.params.id2}`
     );
     dataAsli.value = response.data;
     dataDetail.value = response.data;
@@ -626,6 +626,7 @@ function romanize(num) {
       :aspekKepribadianRank="aspekKepribadianRank"
       :temp="temp"
       :paket="paket"
+      :kelas="kelas"
     />
     <CardSertifikat1
       v-else
@@ -633,6 +634,7 @@ function romanize(num) {
       :aspekKepribadianRank="aspekKepribadianRank"
       :temp="temp"
       :paket="paket"
+      :kelas="kelas"
     />
   </div>
 </template>

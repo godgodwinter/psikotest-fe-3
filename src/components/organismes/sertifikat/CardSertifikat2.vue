@@ -1,4 +1,5 @@
 <script setup>
+import Api from "@/axios/axios";
 import { ref } from "vue";
 import Fungsi from "@/components/lib/Psikotest.js";
 const props = defineProps({
@@ -14,15 +15,22 @@ const props = defineProps({
   default() {
     return null;
   },
-  paket: Object,
+  // paket: Object,
+  // default() {
+  //   return null;
+  // },
+  kelas: Object,
   default() {
     return null;
   },
 });
+const kelas = ref(props.kelas);
 const siswa = ref(props.siswa);
 const aspekKepribadianRank = ref(props.aspekKepribadianRank);
 const temp = ref(props.temp);
-const paket = ref(props.paket);
+// const paket = ref(props.paket);
+
+const paket = ref([]);
 
 siswa.value.iq_ket = Fungsi.iqKet(props.siswa.sertifikat.iq);
 siswa.value.eq_persen_keterangan = Fungsi.kepanjangan(
@@ -63,25 +71,39 @@ const kecerdasanList = ref([
   {
     label: "Cukup",
     code: "C",
-    altCode: "CB",
   },
   {
-    label: "Kurang Baik",
-    code: "KB",
+    label: "Cukup Baik",
+    code: "CB",
+    // altCode: "CB",
   },
   {
     label: "Baik",
     code: "B",
   },
   {
-    label: "Sangat Baik",
-    code: "SB",
+    label: "Sangat Baik", //Baik sekali
+    code: "BS",
+    // altCode: "BS",
   },
   {
     label: "Sangat Baik Sekali",
     code: "SBS",
   },
 ]);
+
+const getDataPaket = async (paket_id) => {
+  try {
+    const response = await Api.get(`guest/paket/${paket_id}`);
+    paket.value = response.data;
+    // console.log(paket.value);
+    return response.data;
+  } catch (error) {
+    // Toast.danger("Warning", "Data Gagal dimuat");
+    console.error(error);
+  }
+};
+getDataPaket(siswa.value.paket_id);
 </script>
 <template>
   <div v-if="siswa">
@@ -150,7 +172,7 @@ const kecerdasanList = ref([
                 <tr>
                   <td class="whitespace-nowrap w-1/100">I.</td>
                   <td class="whitespace-nowrap w-1/100">
-                    IQ (Intelegence Quotient) / CFIT
+                    IQ (Intelegence Quotient) / IST
                   </td>
                   <td class="whitespace-nowrap w-1/100">:</td>
                   <td class="whitespace-nowrap w-1/100">
@@ -541,7 +563,7 @@ const kecerdasanList = ref([
             Potensi kecerdasan subyek yang dapat digunakan saat ini
             <b> {{ siswa.iq }}</b
             >,(IQ=<b>{{ siswa.iq }}</b
-            >, CFIT = <b>{{ siswa.sertifikat.iq_persen }}%)</b> artinya dengan
+            >, IST = <b>{{ siswa.sertifikat.iq_persen }}%)</b> artinya dengan
             tingkat kemampuan menggunakan kecerdasan majemuk tergolong
             <b>{{ siswa.iqh }}</b
             >.
