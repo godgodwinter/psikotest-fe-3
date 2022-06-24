@@ -82,6 +82,26 @@ const router = createRouter({
           component: () => import("@/views/admin/data/KlasifikasiDetail.vue"),
         },
         {
+          path: '/pages/data/catatan/referensistudi',
+          name: 'AdminReferensiStudi',
+          component: () => import("@/views/admin/data/ReferensiStudi.vue"),
+        },
+        {
+          path: '/pages/data/catatan/referensistudi/:id',
+          name: 'AdminReferensiStudiDetail',
+          component: () => import("@/views/admin/data/ReferensiStudiDetail.vue"),
+        },
+        {
+          path: '/pages/data/catatan/buletin',
+          name: 'AdminBuletin',
+          component: () => import("@/views/admin/data/Buletin.vue"),
+        },
+        {
+          path: '/pages/data/catatan/buletin/:id',
+          name: 'AdminBuletinDetail',
+          component: () => import("@/views/admin/data/BuletinDetail.vue"),
+        },
+        {
           path: '/pages/sekolah/:id/detail',
           component: () => import("@/views/admin/sekolah/Detail.vue"),
           name: 'AdminSekolahDetail',
