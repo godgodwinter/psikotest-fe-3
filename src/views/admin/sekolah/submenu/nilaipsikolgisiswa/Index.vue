@@ -53,12 +53,9 @@ const getData = async () => {
 
     dataAsli.value.forEach((item, index) => {
       let tempDataList = {};
-      if (item.siswadetailwithsertifikat) {
+      if (item.sertifikat_data) {
         ListTampilkan.value.forEach((listItem) => {
-          tempDataList[listItem.id] =
-            item.siswadetailwithsertifikat.apiprobkwithsertifikat.apiprobk_sertifikat[
-              listItem.id
-            ];
+          tempDataList[listItem.id] = item.sertifikat_data[listItem.id];
         });
       }
       // console.log(tempDataList);
@@ -119,23 +116,13 @@ const getDataKelas = async () => {
 getDataKelas();
 
 const doPilihKelas = () => {
+  data.value = [];
   if (inputCariKelas.value.id === "Semua Kelas") {
-    // data.value = dataAsli.value.map((item, index) => {
-    //   return {
-    //     ...item,
-    //     nama: item.nama,
-    //     kelas: `${item.kelas ? item.kelas.nama : ""}`,
-    //   };
-    // });
-
     dataAsli.value.forEach((item, index) => {
       let tempDataList = {};
-      if (item.siswadetailwithsertifikat) {
+      if (item.sertifikat_data) {
         ListTampilkan.value.forEach((listItem) => {
-          tempDataList[listItem.id] =
-            item.siswadetailwithsertifikat.apiprobkwithsertifikat.apiprobk_sertifikat[
-              listItem.id
-            ];
+          tempDataList[listItem.id] = item.sertifikat_data[listItem.id];
         });
       }
       // console.log(tempDataList);
@@ -158,12 +145,10 @@ const doPilihKelas = () => {
     if (dataFiltered.length > 0) {
       dataFiltered.forEach((item, index) => {
         let tempDataList = {};
-        if (item.siswadetailwithsertifikat) {
+
+        if (item.sertifikat_data) {
           ListTampilkan.value.forEach((listItem) => {
-            tempDataList[listItem.id] =
-              item.siswadetailwithsertifikat.apiprobkwithsertifikat.apiprobk_sertifikat[
-                listItem.id
-              ];
+            tempDataList[listItem.id] = item.sertifikat_data[listItem.id];
           });
         }
         // console.log(tempDataList);
@@ -204,12 +189,9 @@ const doPilihKelas = () => {
       data.value = [];
       dataFiltered.forEach((item, index) => {
         let tempDataList = {};
-        if (item.siswadetailwithsertifikat) {
+        if (item.sertifikat_data) {
           ListTampilkan.value.forEach((listItem) => {
-            tempDataList[listItem.id] =
-              item.siswadetailwithsertifikat.apiprobkwithsertifikat.apiprobk_sertifikat[
-                listItem.id
-              ];
+            tempDataList[listItem.id] = item.sertifikat_data[listItem.id];
           });
         }
         // console.log(tempDataList);
