@@ -55,7 +55,7 @@ const pagesActiveClass = ref(
                     <img src="@/assets/img/avatar/baemon-ava-2.jpg" />
                   </div>
                 </div> -->
-                <div class="avatar online">
+                <div class="avatar online" v-if="getIdentitas.photo">
                   <div
                     class="w-24 rounded-full border border-sky-200 hover:border-sky-400 shadow hover:shadow-lg"
                   >

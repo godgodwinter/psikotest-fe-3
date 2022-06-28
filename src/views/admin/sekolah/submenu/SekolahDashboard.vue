@@ -80,7 +80,7 @@ getDataDetail();
   <div class="px-4 py-10">
     <h3 class="font-bold"></h3>
   </div>
-  <div class="w-full flex justify-center flex-wrap">
+  <div class="w-full flex justify-center flex-wrap" v-if="dataSekolah.photo">
     <div
       class="xl:flex felx-wrap gap-10 xl:w-full px-4 justify-center space-y-4 w-full"
     >
@@ -92,7 +92,7 @@ getDataDetail();
           >
             <div class="w-52 mask mask-squircle">
               <img
-                v-if="dataSekolah.photo"
+                v-if="dataSekolah.photo.logosekolah"
                 :src="dataSekolah.photo.logosekolah"
               />
               <img v-else src="@/assets/img/logo/github-copilot.svg" />
@@ -105,7 +105,7 @@ getDataDetail();
         <label for="my-modal-1" class="modal cursor-pointer">
           <label class="modal-box relative" for="">
             <img
-              v-if="dataSekolah.photo"
+              v-if="dataSekolah.photo.logosekolah"
               :src="dataSekolah.photo.logosekolah"
             />
             <img v-else src="@/assets/img/logo/github-copilot.svg" />
@@ -131,7 +131,7 @@ getDataDetail();
           >
             <div class="w-52 mask mask-squircle">
               <img
-                v-if="dataSekolah.photo"
+                v-if="dataSekolah.photo.kepalasekolah"
                 :src="dataSekolah.photo.kepalasekolah"
               />
               <img v-else src="@/assets/img/avatar/user.png" />
@@ -143,7 +143,7 @@ getDataDetail();
           <label for="my-modal-2" class="modal cursor-pointer">
             <label class="modal-box relative" for="">
               <img
-                v-if="dataSekolah.photo"
+                v-if="dataSekolah.photo.kepalasekolah"
                 :src="dataSekolah.photo.kepalasekolah"
               />
               <img v-else src="@/assets/img/avatar/user.png" />
