@@ -7,7 +7,7 @@ import ButtonEdit from "@/components/atoms/ButtonEdit.vue";
 import { useRouter, useRoute } from "vue-router";
 import { useStoreAdminBar } from "@/stores/adminBar";
 const storeAdminBar = useStoreAdminBar();
-storeAdminBar.setsubMenuActive("kelas");
+storeAdminBar.setsubMenuActive("bk");
 
 const router = useRouter();
 const route = useRoute();
@@ -18,29 +18,19 @@ const data = ref([]);
 
 const columns = [
   {
-    label: "Kelas",
+    label: "Nama Guru",
     field: "nama",
     type: "String",
   },
   {
-    label: "Walikelas",
-    field: "walikelas_nama",
-    type: "String",
-  },
-  {
-    label: "Guru BK",
-    field: "bk_nama",
-    type: "String",
-  },
-  {
-    label: "Jumlah Siswa",
-    field: "jmlsiswa",
+    label: "Nomer Induk",
+    field: "nomerinduk",
     type: "String",
   },
 ];
 const getData = async () => {
   try {
-    const response = await Api.get(`yayasan/datasekolah/${id}}/kelas`);
+    const response = await Api.get(`yayasan/datasekolah/${id}}/bk`);
     dataAsli.value = response.data;
     data.value = response.data;
 
@@ -52,7 +42,7 @@ const getData = async () => {
 getData();
 const doEditData = async (id2, index) => {
   router.push({
-    name: "AdminSekolahDetailKelasEdit",
+    name: "AdminSekolahDetailBkEdit",
     params: { id, id2: id2 },
   });
 };
@@ -76,8 +66,8 @@ const doDeleteData = async (id2, index) => {
         <div v-if="data">
           <vue-good-table
             :columns="columns"
-            :rows="data"
             :line-numbers="true"
+            :rows="data"
             :search-options="{
               enabled: true,
             }"
@@ -94,31 +84,6 @@ const doDeleteData = async (id2, index) => {
                   class="text-sm font-medium text-center flex justify-center space-x-0"
                 >
                   <ButtonEdit @click="doEditData(props.row.id, props.index)" />
-                  <!-- <router-link
-                    :to="{
-                      name: 'AdminYayasanDetail',
-                      params: { id: props.row.id },
-                    }"
-                  >
-                    <button
-                      class="btn btn-sm btn-primary tooltip"
-                      data-tip="Detail"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-5 w-5"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                      </svg></button
-                  ></router-link> -->
                 </div>
               </span>
 
