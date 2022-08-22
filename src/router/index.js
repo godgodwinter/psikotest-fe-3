@@ -121,7 +121,7 @@ const router = createRouter({
               name: "AdminSekolahDetailDashboard",
             },
             {
-              path: "/pages/admin/sekolahdetail/:id/siswa",
+              path: "/pages/admin/sekolahdetail/:id/siswa/:kelas_id?",
               component: () =>
                 import("@/views/admin/sekolah/submenu/siswa/Index.vue"),
               name: "AdminSekolahDetailSiswa",
@@ -170,7 +170,7 @@ const router = createRouter({
             },
             // hasil psikologi
             {
-              path: "/pages/admin/sekolahdetail/:id/hasilpsikologi",
+              path: "/pages/admin/sekolahdetail/:id/hasilpsikologi/:kelas_id?",
               component: () =>
                 import(
                   "@/views/admin/sekolah/submenu/hasilpsikologi/Index.vue"
@@ -226,7 +226,7 @@ const router = createRouter({
               name: "AdminSekolahDetailHasilpsikologiTerapis",
             },
             {
-              path: "/pages/admin/sekolahdetail/:id/nilaipsikolgisiswa",
+              path: "/pages/admin/sekolahdetail/:id/nilaipsikolgisiswa/:kelas_id?",
               component: () =>
                 import(
                   "@/views/admin/sekolah/submenu/nilaipsikolgisiswa/Index.vue"
@@ -234,13 +234,13 @@ const router = createRouter({
               name: "AdminSekolahDetailNilaipsikolgiSiswa",
             },
             {
-              path: "/pages/admin/sekolahdetail/:id/minatbakat",
+              path: "/pages/admin/sekolahdetail/:id/minatbakat/:kelas_id?",
               component: () =>
                 import("@/views/admin/sekolah/submenu/minatbakat/Index.vue"),
               name: "AdminSekolahDetailMinatbakat",
             },
             {
-              path: "/pages/admin/sekolahdetail/:id/penjurusan",
+              path: "/pages/admin/sekolahdetail/:id/penjurusan/:kelas_id?",
               component: () =>
                 import("@/views/admin/sekolah/submenu/penjurusan/Index.vue"),
               name: "AdminSekolahDetailPenjurusan",

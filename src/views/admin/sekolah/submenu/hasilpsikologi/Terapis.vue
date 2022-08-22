@@ -46,7 +46,7 @@ const tempPositifDiungkap = ref([]);
 const getDataId = async () => {
   try {
     const response = await Api.get(
-      `yayasan/hasilpsikologi/detail/${route.params.id}`
+      `yayasan/hasilpsikologi/detail/${route.params.id2}`
     );
     dataAsli.value = response.data;
     dataDetail.value = response.data;
@@ -405,48 +405,34 @@ const doCetak = (id = null, token = moment().format("YYYY-MM-DD")) => {
 <template>
   <div class="pt-4 px-10 md:flex justify-between">
     <div>
-      <span
-        class="text-2xl sm:text-3xl leading-none font-bold text-base-content shadow-sm"
-      >
+      <span class="text-2xl sm:text-3xl leading-none font-bold text-base-content shadow-sm">
         <!-- {{ dataAsli.nama }} -->
       </span>
     </div>
     <div class="md:py-0 py-4">
       <BreadCrumb>
-        <template v-slot:content> Siswa <BreadCrumbSpace /> Edit </template>
+        <template v-slot:content> Siswa
+          <BreadCrumbSpace /> Edit
+        </template>
       </BreadCrumb>
     </div>
   </div>
   <div class="pt-4 px-10 md:flex justify-between">
     <div>
-      <span
-        class="text-2xl sm:text-3xl leading-none font-bold text-gray-700 shadow-sm px-2"
-        >Terapis Karakter Positif</span
-      >
+      <span class="text-2xl sm:text-3xl leading-none font-bold text-gray-700 shadow-sm px-2">Terapis Karakter
+        Positif</span>
       <ButtonCetak @click="doCetak(id)" />
     </div>
     <div class="md:py-0 py-4 space-x-2 space-y-2">
       <router-link :to="{ name: 'AdminHasilPsikologi' }">
-        <button
-          class="btn hover:shadow-lg shadow text-white hover:text-gray-100 gap-2"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-            />
+        <button class="btn hover:shadow-lg shadow text-white hover:text-gray-100 gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
           </svg>
           Kembali
-        </button></router-link
-      >
+        </button>
+      </router-link>
     </div>
   </div>
 
@@ -496,27 +482,17 @@ const doCetak = (id = null, token = moment().format("YYYY-MM-DD")) => {
           </div>
         </div>
       </div>
-      <div
-        class="md:py-2 px-4 lg:flex flex-wrap gap-4"
-        v-for="(item, index) in tempPositifDiungkap"
-      >
+      <div class="md:py-2 px-4 lg:flex flex-wrap gap-4" v-for="(item, index) in tempPositifDiungkap">
         <div class="w-full lg:w-full">
           <div class="bg-white shadow rounded-lg px-4 py-4">
             <div class="overflow-x-auto px-4 space-y-10 py-4">
               <div class="space-y-2">
-                <h1
-                  class="text-lg font-bold text-gray-700 py-2 bg-gray-100 shadow"
-                >
+                <h1 class="text-lg font-bold text-gray-700 py-2 bg-gray-100 shadow">
                   {{ item.label }}
                 </h1>
 
-                <div
-                  class="space-y-2 border-b-2 py-2"
-                  v-for="(it, index) in item.data"
-                >
-                  <h1
-                    class="text-lg font-bold text-gray-700 py-2 bg-gray-100 capitalize"
-                  >
+                <div class="space-y-2 border-b-2 py-2" v-for="(it, index) in item.data">
+                  <h1 class="text-lg font-bold text-gray-700 py-2 bg-gray-100 capitalize">
                     {{ index + 1 }}. {{ it.nama }}
                   </h1>
                   <h1 class="text-md font-bold text-gray-700 bg-gray-50">
