@@ -86,13 +86,6 @@ const getData = async (kelas_id) => {
 
 const columns = [
   {
-    label: "No",
-    field: "no",
-    width: "50px",
-    tdClass: "text-center",
-    thClass: "text-center",
-  },
-  {
     label: "Nama Siswa",
     field: "nama",
     type: "String",
@@ -146,7 +139,7 @@ const columns = [
     <div class="w-full lg:w-full">
       <div class="bg-base-200 shadow rounded-lg px-4 py-4">
         <div v-if="data">
-          <vue-good-table :columns="columns" :rows="data" :search-options="{
+          <vue-good-table :line-numbers="true" :columns="columns" :rows="data" :search-options="{
             enabled: true,
           }" :pagination-options="{
   enabled: true,
